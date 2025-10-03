@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ecofind - Sell Your Product</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="style.css" rel="stylesheet"/>
+    <link rel="icon" href="https://image2url.com/images/1757145640540-1fd8f372-5257-4b05-b3de-a78656f9c6c8.ico" type="image/x-icon">
+
+  <style>
+    .sell-hero {
+      background: url('https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+      color: #fff;
+      padding: 80px 0 60px 0;
+      text-shadow: 1px 1px 8px #2e7d32;
+    }
+    .sell-section-title {
+      color: #2e7d32;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+    .sell-form-card {
+      border-radius: 1rem;
+      box-shadow: 0 2px 12px rgba(46, 125, 50, 0.10);
+      background: #fff;
+      padding: 2rem;
+      margin-top: -60px;
+      margin-bottom: 2rem;
+    }
+    .form-label {
+      font-weight: 500;
+    }
+    .btn-eco {
+      font-size: 1.1rem;
+      padding: 0.6em 2em;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <a class="navbar-brand fw-bold d-flex align-items-center" href="#">
+        <img src="https://image2url.com/images/1757141720438-f13eba6e-88a7-4b8c-a11a-f924ed67b3be.jpg" alt="EcofindLogo" style="height:40px; width:auto; margin-right:10px;">
+        Ecofind
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="shopDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Shop
+          </a>
+        <ul class="dropdown-menu" aria-labelledby="shopDropdown">
+            <li><a class="dropdown-item" href="buy.html">Buy</a></li>
+            <li><a class="dropdown-item" href="sell.html">Sell</a></li>
+        </ul>
+        </li>
+          <li class="nav-item">
+            <a class="nav-link" href="login.html">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="signup.html">Sign Up</a>
+          </li>
+        </ul>
+        
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="sell-hero text-center">
+    <div class="container">
+      <h1 class="display-4 fw-bold">Sell Your Pre-Loved Product</h1>
+      <p class="lead mb-4">Give your items a new life and help build a sustainable future. List your product below!</p>
+    </div>
+  </section>
+
+  <!-- Sell Form -->
+  <div class="container">
+    <div class="sell-form-card mx-auto" style="max-width: 600px;">
+      <h2 class="sell-section-title mb-4 text-center">Product Details</h2>
+      <form>
+        <div class="mb-3">
+          <label for="productName" class="form-label">Product Name</label>
+          <input type="text" class="form-control" id="productName" placeholder="e.g. Vintage Wooden Chair" required>
+        </div>
+        <div class="mb-3">
+          <label for="productCategory" class="form-label">Category</label>
+          <select class="form-select" id="productCategory" required>
+            <option value="">Select Category</option>
+            <option value="Furniture">Furniture</option>
+            <option value="Books">Books</option>
+            <option value="Fashion">Fashion</option>
+            <option value="Accessories">Accessories</option>
+            <option value="Electronics">Electronics</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label for="productDescription" class="form-label">Description</label>
+          <textarea class="form-control" id="productDescription" rows="3" placeholder="Describe your product" required></textarea>
+        </div>
+        <div class="mb-3">
+          <label for="productPrice" class="form-label">Price (₹)</label>
+          <input type="number" class="form-control" id="productPrice" placeholder="e.g. 500" min="0" required>
+        </div>
+        <div class="mb-3">
+          <label for="productImage" class="form-label">Product Image</label>
+          <input class="form-control" type="file" id="productImage" accept="image/*" required>
+        </div>
+        <div class="mb-3">
+          <label for="sellerName" class="form-label">Your Name</label>
+          <input type="text" class="form-control" id="sellerName" placeholder="e.g. John Doe" required>
+        </div>
+        <div class="mb-3">
+          <label for="sellerEmail" class="form-label">Your Email</label>
+          <input type="email" class="form-control" id="sellerEmail" placeholder="e.g. you@email.com" required>
+        </div>
+        <button type="submit" class="btn btn-eco w-100 mt-3">Submit Listing</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Contact Section -->
+  <section class="py-5" id="contact" style="background: #111; color: #fff;">
+    <div class="container">
+      <h2 class="mb-4 text-center fw-semibold">Contact Us</h2>
+      <div class="row">
+        <div class="col-md-6">
+          <ul class="list-unstyled fs-5">
+            <li class="mb-1">
+              <strong>Email:</strong> <a href="mailto:info@ecofind.com" style="color:#4caf50;">info@ecofind.com</a>
+            </li>
+            <li class="mb-1">
+              <strong>Phone:</strong> <a href="tel:+1234567890" style="color:#4caf50;">+1 234 567 890</a>
+            </li>
+            <li class="mb-1">
+              <strong>Address:</strong> 123 Green Street, Eco City, Earth
+            </li>
+          </ul>
+          <div class="mt-4">
+            <a href="mailto:info@ecofind.com" class="btn btn-eco">Send Email</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer text-center">
+    <div class="container">
+      <p class="mb-0">&copy; 2025 EcoFind. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  
+
+<!-- Add this modal just before the closing </body> tag -->
+<div class="modal fade" id="productAddedModal" tabindex="-1" aria-labelledby="productAddedModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="productAddedModalLabel">Product Listed!</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Your product has been successfully listed and is now visible in the Buy section.
+      </div>
+      <div class="modal-footer">
+        <a href="buy.html" class="btn btn-success">Go to Buy Page</a>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+document.querySelector("form").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+  if (!currentUser) {
+    alert("You must be logged in to sell a product.");
+    return;
+  }
+
+  const name = document.getElementById("productName").value.trim();
+  const category = document.getElementById("productCategory").value;
+  const description = document.getElementById("productDescription").value.trim();
+  const price = document.getElementById("productPrice").value;
+  const seller = document.getElementById("sellerName").value.trim();
+  // Always use logged-in user's email
+  const email = currentUser.email;
+  const imageInput = document.getElementById("productImage");
+  const imageFile = imageInput.files[0];
+
+  if (imageFile) {
+    const reader = new FileReader();
+    reader.onload = function(event) {
+      const imageUrl = event.target.result;
+      const products = JSON.parse(localStorage.getItem("userProducts")) || [];
+      products.push({
+        name,
+        category,
+        description,
+        price,
+        seller,
+        email,
+        image: imageUrl,
+        id: Date.now()
+      });
+      localStorage.setItem("userProducts", JSON.stringify(products));
+
+      // Show modal instead of alert
+      const modal = new bootstrap.Modal(document.getElementById('productAddedModal'));
+      modal.show();
+
+      document.querySelector("form").reset();
+    };
+    reader.readAsDataURL(imageFile);
+  }
+});
+</script>
+</body>
+</html>

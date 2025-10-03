@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="images/logo.png" type="image/png" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="style.css" rel="stylesheet" />
+  <script src="backend/Backend.js"></script>
+  <link rel="icon" href="https://image2url.com/images/1757145640540-1fd8f372-5257-4b05-b3de-a78656f9c6c8.ico" type="image/x-icon">
+  <title>Ecofind - Sustainable Second-Hand Marketplace</title>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <a class="navbar-brand fw-bold d-flex align-items-center" href="#">
+        <img src="https://image2url.com/images/1757141720438-f13eba6e-88a7-4b8c-a11a-f924ed67b3be.jpg" alt="EcofindLogo" style="height:40px; width:auto; margin-right:10px;">
+        Ecofind
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" id="browseBtn" href="#">Browse</a></li>
+          <li class="nav-item"><a class="nav-link" id="aboutBtn" href="#">About</a></li>
+          <li class="nav-item"><a class="nav-link" id="contactBtn" href="#">Contact</a></li>
+          <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="shopDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Shop
+          </a>
+        <ul class="dropdown-menu" aria-labelledby="shopDropdown">
+            <li><a class="dropdown-item" href="buy.html">Buy</a></li>
+            <li><a class="dropdown-item" href="sell.html">Sell</a></li>
+        </ul>
+        </li>
+          <li class="nav-item">
+            <a class="nav-link" href="login.html">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="signup.html">Sign Up</a>
+          </li>
+        </ul>
+        
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero text-center">
+    <div class="container" id="container1">
+      <h1 class="display-4 fw-bold">Ecofind</h1>
+      <p class="lead mb-4">Sustainable Second-Hand Marketplace</p>
+      <a href="#" class="btn btn-eco btn-lg" id="start-exploring-btn">Start Exploring</a>
+    </div>
+  </section>
+
+  <!-- Listings Carousel -->
+  <section class="py-5" id="featured-listings">
+    <div class="container">
+      <h2 class="mb-4 text-center fw-semibold">Featured Listings</h2>
+      <div class="carousel-wrapper position-relative">
+        <button class="carousel-btn left" id="carousel-left">&#10094;</button>
+        <div class="carousel-container">
+          <!-- Repeat cards as needed -->
+          <div class="carousel-card">
+            <img src="https://images.unsplash.com/photo-1567359755029-04f642e9a88f?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Vintage Chair" />
+            <div class="card-body">
+              <h5 class="card-title">Vintage Wooden Chair</h5>
+              <p class="card-text">Beautifully restored, eco-friendly, and ready for a new home.</p>
+              <a href="#" class="btn btn-eco">View Details</a>
+            </div>
+          </div>
+
+          <!-- More carousel cards (copy or update as needed) -->
+          <div class="carousel-card">
+            <img src="https://images.unsplash.com/photo-1656266724376-d8c5afed26d4?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Books" />
+            <div class="card-body">
+              <h5 class="card-title">Pre-loved Books</h5>
+              <p class="card-text">Give these classics a second chance and reduce paper waste.</p>
+              <a href="#" class="btn btn-eco">View Details</a>
+            </div>
+          </div>
+
+          <div class="carousel-card">
+            <img src="https://plus.unsplash.com/premium_photo-1713586580695-4561ceb1e80c?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Clothes" />
+            <div class="card-body">
+              <h5 class="card-title">Sustainable Fashion</h5>
+              <p class="card-text">Trendy, fashionable, gently-used clothes for a greener wardrobe.</p>
+              <a href="#" class="btn btn-eco">View Details</a>
+            </div>
+          </div>
+          <div class="carousel-card">
+            <img src="https://images.unsplash.com/photo-1694679741124-cd87cf3f18aa?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Clothes" />
+            <div class="card-body">
+              <h5 class="card-title">Upcycled Coffee Table</h5>
+              <p class="card-text">Crafted from reclaimed wood, this rustic coffee table adds warmth and sustainability to your living space.</p>
+              <a href="#" class="btn btn-eco">View Details</a>
+            </div>
+          </div>
+          <div class="carousel-card">
+            <img src="https://images.unsplash.com/photo-1702906221006-97bc40420704?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Clothes" />
+            <div class="card-body">
+              <h5 class="card-title">Eco-Friendly Backpacks</h5>
+              <p class="card-text">Durable, stylish, and made from recycled materials — perfect for school, travel, or everyday adventures.</p>
+              <a href="#" class="btn btn-eco">View Details</a>
+            </div>
+          </div>
+          <div class="carousel-card">
+            <img src="https://images.unsplash.com/photo-1706211747367-0af988d34eae?q=80&w=689&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Clothes" />
+            <div class="card-body">
+              <h5 class="card-title">Vintage Accessories Bundle</h5>
+              <p class="card-text">Timeless scarves, belts, and sunglasses — curated to elevate your style while reducing waste.</p>
+              <a href="#" class="btn btn-eco">View Details</a>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-btn right" id="carousel-right">&#10095;</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+    <section class="py-5 bg-light" id="">
+        <div class="container" id="container2">
+            <h2 class="mb-4 text-center fw-semibold">How It Works</h2>
+            <div class="row text-center">
+                <div class="col-md-4" id="howItWorks">
+                    <div class="mb-3">
+                        <span class="fs-1 text-success"><i class="bi bi-search"></i></span>
+                    </div>
+                    <img id="workImage" src="https://image2url.com/images/1757141047806-7e405b78-99a8-40b1-820d-5b1a0fddf966.png" alt="">
+                    <h5>Browse</h5>
+                    <p>Discover a wide and diverse range of sustainable second-hand products that combine quality, affordability, and eco-consciousness. Each item carries a story, reduces waste, and promotes mindful consumption. From furniture and books to fashion and accessories, find unique treasures that support a greener planet and a more responsible lifestyle.</p>
+                </div>
+                <div class="col-md-4" id="howItWorks">
+                    <div class="mb-3">
+                        <span class="fs-1 text-success"><i class="bi bi-bag"></i></span>
+                    </div>
+                    <img id="workImage" src="https://image2url.com/images/1757153282115-a7c4d071-248b-43b0-a14f-b52c1a2c90e1.png" alt="buyimg">
+                    <h5>Buy</h5>
+                    <p>Purchase items you love while actively supporting a circular economy built on reuse and sustainability. Every choice you make helps reduce waste, conserve resources, and extend the life of quality goods. Find meaningful value in pre-loved treasures and contribute to a greener, more responsible, and eco-friendly lifestyle for all.</p>
+                </div>
+                <div class="col-md-4" id="howItWorks">
+                    <div class="mb-3">
+                        <span class="fs-1 text-success"><i class="bi bi-box-arrow-up"></i></span>
+                    </div>
+                    <img id="workImage" src="https://image2url.com/images/1757141155837-7ea2d87e-3da1-4393-8ece-b0655a731d5a.png" alt="">
+                    <h5>Sell</h5>
+                    <p>List your pre-loved items easily and give them a meaningful new life by connecting with people who truly value sustainable choices. Sharing what you no longer need helps reduce environmental impact, prevents waste, and supports the circular economy, while allowing someone else to enjoy quality, affordable, and eco-friendly products.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+  <!-- About & Contact Section -->
+  <section class="py-5" id="about-contact" style="background: #111; color: #fff;">
+    <div class="container" id="container3">
+      <div class="row align-items-center">
+        <!-- About Us -->
+        <div class="col-md-6 mb-4 mb-md-0" id="greyLine">
+          <h2 class="mb-4 fw-semibold">About Us</h2>
+          <p style="font-size: 1.1rem;">
+            <strong>Ecofind</strong> is a sustainable second-hand marketplace dedicated to promoting eco-friendly living and conscious consumption. Our mission is to connect people who want to buy and sell quality pre-loved items, reduce waste, and support a circular economy. Every product on Ecofind has a story and a purpose—join us in making a positive impact on the planet, one purchase at a time.
+          </p>
+          <ul class="list-unstyled mt-3">
+            <li><i class="bi bi-check-circle-fill text-success"></i> Sustainable & Circular Economy</li>
+            <li><i class="bi bi-check-circle-fill text-success"></i> Quality Pre-loved Products</li>
+            <li><i class="bi bi-check-circle-fill text-success"></i> Community Driven</li>
+          </ul>
+        </div>
+        <!-- Vertical Divider -->
+        <div class="col-md-1 d-none d-md-flex justify-content-center">
+          <div style="border-left:2px solid #444; height:100%;"></div>
+        </div>
+        <!-- Contact Us -->
+        <div class="col-md-5">
+          <h2 class="mb-4 fw-semibold">Contact Us</h2>
+          <ul class="list-unstyled fs-5">
+            <li class="mb-1">
+              <strong>Email:</strong> <a href="pixelpioneer@html.com" style="color:#4caf50;">info@ecofind.com</a>
+            </li>
+            <li class="mb-1">
+              <strong>Phone:</strong> <a href="tel:+91 94495 91920" style="color:#4caf50;">+1 234 567 890</a>
+            </li>
+            <li class="mb-1">
+              <strong>Address:</strong> Reva University.
+            </li>
+          </ul>
+          <div class="mt-4">
+            <a href="mailto:info@ecofind.com" class="btn btn-eco">Send Email</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer text-center">
+    <div class="container" id="container4">
+      <p class="mb-0">&copy; 2025 EcoFind. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Script -->
+  <script src="main.js"></script>
+  <!-- Bootstrap JS Bundle with Popper (Required for dropdowns) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

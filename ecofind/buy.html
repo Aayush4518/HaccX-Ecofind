@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ecofind - Buy Sustainable Products</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="style.css" rel="stylesheet"/>
+  <link rel="icon" href="https://image2url.com/images/1757145640540-1fd8f372-5257-4b05-b3de-a78656f9c6c8.ico" type="image/x-icon">
+
+  <style>
+    .buy-hero {
+      background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+      color: #fff;
+      padding: 80px 0 60px 0;
+      text-shadow: 1px 1px 8px #2e7d32;
+    }
+    .buy-section-title {
+      color: #2e7d32;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+    .buy-card {
+      border: none;
+      border-radius: 1rem;
+      box-shadow: 0 2px 12px rgba(46, 125, 50, 0.10);
+      transition: transform 0.2s;
+      background: #fff;
+    }
+    .buy-card:hover {
+      transform: translateY(-8px) scale(1.03);
+      box-shadow: 0 6px 24px rgba(46, 125, 50, 0.16);
+    }
+    .buy-card img {
+      border-radius: 1rem 1rem 0 0;
+      height: 220px;
+      object-fit: cover;
+    }
+    .badge-eco {
+      background: #388e3c;
+      color: #fff;
+      font-size: 0.9rem;
+      border-radius: 0.5rem;
+      padding: 0.3em 0.8em;
+      margin-bottom: 0.5em;
+      display: inline-block;
+    }
+    .buy-steps {
+      background: #f4f8f4;
+      border-radius: 1rem;
+      padding: 2rem 1rem;
+      margin-top: 2rem;
+    }
+    .buy-steps .step-icon {
+      font-size: 2.5rem;
+      color: #388e3c;
+      margin-bottom: 0.5rem;
+    }
+    .buy-cta {
+      background: #2e7d32;
+      color: #fff;
+      border-radius: 1rem;
+      padding: 2rem 1rem;
+      margin-top: 2.5rem;
+      text-align: center;
+    }
+    .buy-cta .btn-eco {
+      font-size: 1.2rem;
+      padding: 0.7em 2em;
+      margin-top: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <a class="navbar-brand fw-bold d-flex align-items-center" href="#">
+        <img src="https://image2url.com/images/1757141720438-f13eba6e-88a7-4b8c-a11a-f924ed67b3be.jpg" alt="EcofindLogo" style="height:40px; width:auto; margin-right:10px;">
+        Ecofind
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="shopDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Shop
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="shopDropdown">
+              <li><a class="dropdown-item" href="buy.html">Buy</a></li>
+              <li><a class="dropdown-item" href="sell.html">Sell</a></li>
+            </ul>
+          </li>
+          <!-- Live Cart Icon -->
+          <li class="nav-item">
+            <a class="nav-link position-relative" href="cart.html" id="cartNavLink">
+              <i class="bi bi-cart3"></i>
+              <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success" id="cartCount" style="font-size:0.8em;">
+                0
+              </span>
+              Cart
+            </a>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="login.html" id="navLogin">Login</a></li>
+          <li class="nav-item"><a class="nav-link" href="signup.html" id="navSignup">Sign Up</a></li>
+          <li class="nav-item" style="display:none;" id="navLogout"><a class="nav-link" href="#" id="logoutBtn">Logout</a></li>
+          <li class="nav-item" style="display:none;" id="navProfile"><a class="nav-link" href="dashboard.html">Profile</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="buy-hero text-center">
+    <div class="container">
+      <h1 class="display-4 fw-bold">Buy Sustainable, Buy Smart</h1>
+      <p class="lead mb-4">Discover unique, eco-friendly second-hand treasures and make a positive impact with every purchase.</p>
+      <a href="#products" class="btn btn-eco btn-lg">Browse Products</a>
+    </div>
+  </section>
+
+  <!-- Featured Products -->
+  <section class="py-5" id="products">
+    <div class="container">
+      <h2 class="buy-section-title mb-4 text-center">Featured Products</h2>
+      <div class="row g-4" id="featured-products-row">
+        <div class="col-md-4">
+          <div class="buy-card card h-100">
+            <img src="https://images.unsplash.com/photo-1724922393347-6d58c64cca61?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8d29vZGVuJTIwY2hhaXJ8ZW58MHwwfDB8fHww" class="card-img-top" alt="Vintage Chair">
+            <div class="card-body">
+              <span class="badge-eco">Furniture</span>
+              <h5 class="card-title">Vintage Wooden Chair</h5>
+              <p class="card-text">Beautifully restored, eco-friendly, and ready for a new home.</p>
+              <a href="vintageChair.html" class="btn btn-eco w-100">View More</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="buy-card card h-100">
+            <img src="https://images.unsplash.com/photo-1610116306796-6fea9f4fae38?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Ym9va3N8ZW58MHwwfDB8fHww" class="card-img-top" alt="Books">
+            <div class="card-body">
+              <span class="badge-eco">Books</span>
+              <h5 class="card-title">Pre-loved Books</h5>
+              <p class="card-text">Give these classics a second chance and reduce paper waste.</p>
+              <a href="books.html" class="btn btn-eco w-100">View More</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="buy-card card h-100">
+            <img src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=600&q=80" class="card-img-top" alt="Clothes">
+            <div class="card-body">
+              <span class="badge-eco">Fashion</span>
+              <h5 class="card-title">Sustainable Fashion</h5>
+              <p class="card-text">Trendy, Fashionable, gently-used clothes for a greener wardrobe.</p>
+              <a href="fashion.html" class="btn btn-eco w-100">View More</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Added 3 more featured listings below -->
+        <div class="col-md-4">
+          <div class="buy-card card h-100">
+            <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=600&q=80" class="card-img-top" alt="Decor">
+            <div class="card-body">
+              <span class="badge-eco">Decor</span>
+              <h5 class="card-title">Handcrafted Decor</h5>
+              <p class="card-text">Upcycled and handmade decor pieces to brighten your space sustainably.</p>
+              <a href="decor.html" class="btn btn-eco w-100">View More</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="buy-card card h-100">
+            <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=600&q=80" class="card-img-top" alt="Toys">
+            <div class="card-body">
+              <span class="badge-eco">Toys</span>
+              <h5 class="card-title">Eco Toys</h5>
+              <p class="card-text">Safe, pre-loved toys for kids, promoting reuse and joyful play.</p>
+              <a href="toys.html" class="btn btn-eco w-100">View More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Additional products -->
+      <div class="row g-4 mt-2" id="user-products-row"></div>
+    </div>
+  </section>
+
+  <!-- How to Buy Steps -->
+  <section class="buy-steps container my-5">
+    <h3 class="text-center mb-4 buy-section-title">How to Buy on Ecofind</h3>
+    <div class="row text-center">
+      <div class="col-md-4 mb-3">
+        <div class="step-icon mb-2"><i class="bi bi-search"></i></div>
+        <h5>1. Browse</h5>
+        <p>Explore our curated collection of sustainable second-hand products.</p>
+      </div>
+      <div class="col-md-4 mb-3">
+        <div class="step-icon mb-2"><i class="bi bi-bag"></i></div>
+        <h5>2. Choose</h5>
+        <p>Select your favorite items and click "View More" to see details.</p>
+      </div>
+      <div class="col-md-4 mb-3">
+        <div class="step-icon mb-2"><i class="bi bi-credit-card"></i></div>
+        <h5>3. Checkout</h5>
+        <p>Follow instructions on product pages to complete your purchase.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action -->
+  <section class="buy-cta container my-5">
+    <h2 class="mb-3">Ready to Make a Difference?</h2>
+    <p class="lead">Every purchase supports sustainability and a greener planet. Shop now and join the Ecofind community!</p>
+    <a href="#products" class="btn btn-eco btn-lg">Start Shopping</a>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="py-5" id="contact" style="background: #111; color: #fff;">
+    <div class="container">
+      <h2 class="mb-4 text-center fw-semibold">Contact Us</h2>
+      <div class="row">
+        <div class="col-md-6">
+          <ul class="list-unstyled fs-5">
+            <li class="mb-1"><strong>Email:</strong> <a href="mailto:info@ecofind.com" style="color:#4caf50;">info@ecofind.com</a></li>
+            <li class="mb-1"><strong>Phone:</strong> <a href="tel:+1234567890" style="color:#4caf50;">+1 234 567 890</a></li>
+            <li class="mb-1"><strong>Address:</strong> 123 Green Street, Eco City, Earth</li>
+          </ul>
+          <div class="mt-4">
+            <a href="mailto:info@ecofind.com" class="btn btn-eco">Send Email</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer text-center">
+    <div class="container">
+      <p class="mb-0">&copy; 2025 EcoFind. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS and Icons -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
+  <script>
+    // Check if user is logged in
+    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+
+    // Get navbar elements
+    const navLogin = document.getElementById('navLogin');
+    const navSignup = document.getElementById('navSignup');
+    const navLogout = document.getElementById('navLogout');
+    const navProfile = document.getElementById('navProfile');
+
+    if (currentUser) {
+      // User logged in
+      if(navLogin) navLogin.style.display = 'none';
+      if(navSignup) navSignup.style.display = 'none';
+      if(navLogout) navLogout.style.display = 'block';
+      if(navProfile) navProfile.style.display = 'block';
+    } else {
+      // User not logged in
+      if(navLogin) navLogin.style.display = 'block';
+      if(navSignup) navSignup.style.display = 'block';
+      if(navLogout) navLogout.style.display = 'none';
+      if(navProfile) navProfile.style.display = 'none';
+    }
+
+    // Logout button
+    const logoutBtn = document.getElementById('logoutBtn');
+    if(logoutBtn) {
+      logoutBtn.addEventListener('click', function(){
+        localStorage.removeItem('currentUser');
+        location.reload();
+      });
+    }
+
+    // Live Cart Count
+    function updateCartCount() {
+      let count = 0;
+      if (currentUser) {
+        const cartKey = `cart_${currentUser.email}`;
+        const cart = JSON.parse(localStorage.getItem(cartKey)) || [];
+        count = cart.reduce((sum, item) => sum + (item.qty || 1), 0);
+      }
+      document.getElementById('cartCount').textContent = count;
+    }
+    updateCartCount();
+
+    // Optional: update cart count when storage changes (e.g., in other tabs)
+    window.addEventListener('storage', function(e) {
+      if (e.key && e.key.startsWith('cart_')) updateCartCount();
+    });
+
+    // --- SHOW USER PRODUCTS FROM SELL FORM ---
+    function renderUserProducts() {
+      const products = JSON.parse(localStorage.getItem("userProducts")) || [];
+      const userRow = document.getElementById("user-products-row");
+      userRow.innerHTML = ""; // Clear previous
+
+      if (!products.length) {
+        userRow.style.display = "none";
+        return;
+      }
+      userRow.style.display = "flex";
+
+      products.forEach(product => {
+        const col = document.createElement("div");
+        col.className = "col-md-4 d-flex align-items-stretch";
+        col.innerHTML = `
+          <div class="buy-card card h-100 w-100 d-flex flex-column">
+            <img src="${product.image}" class="card-img-top" alt="${product.name}">
+            <div class="card-body d-flex flex-column">
+              <span class="badge-eco" style="display:inline-block;width:auto;white-space:nowrap;">${product.category}</span>
+              <h5 class="card-title">${product.name}</h5>
+              <p class="card-text">${product.description}</p>
+              <div class="mb-2"><strong>₹${product.price}</strong></div>
+              <div class="mb-2" style="font-size:0.95em;color:#388e3c;">Seller: ${product.seller}</div>
+              <a href="#" class="btn btn-eco w-100 mt-auto" disabled>Listed by You</a>
+            </div>
+          </div>
+        `;
+        userRow.appendChild(col);
+      });
+    }
+
+    // Call on page load
+    renderUserProducts();
+
+    // Example: Call this when user clicks "Buy" or "Checkout"
+    // filepath: vsls:/buy.html
+    function handlePurchase(product) {
+      const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+      let price = Number(product.price);
+      let offerKey = 'offerFor_' + currentUser.email;
+      let offerApplied = false;
+
+      if (localStorage.getItem(offerKey) === 'true') {
+        // Apply 10% discount
+        price = Math.round(price * 0.9);
+        offerApplied = true;
+        // Remove the offer so it's single-use
+        localStorage.removeItem(offerKey);
+      }
+
+      // Show the price to the user (update your UI accordingly)
+      alert(
+        offerApplied
+          ? `Offer applied! You get 10% off.\nDiscounted Price: ₹${price}`
+          : `Price: ₹${price}`
+      );
+
+      // ...continue with your purchase logic (e.g., add to order history, etc.)...
+    }
+
+    function showProductDetails(product) {
+      const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+      let offerKey = 'offerFor_' + currentUser.email;
+      let hasOffer = localStorage.getItem(offerKey) === 'true';
+      let discountedPrice = Math.round(product.price * 0.9);
+
+      // Example: update your modal or product details section
+      document.getElementById('productPrice').textContent = hasOffer
+        ? `₹${product.price}  →  ₹${discountedPrice} (10% OFF applied!)`
+        : `₹${product.price}`;
+    }
+  </script>
+</body>
+</html>

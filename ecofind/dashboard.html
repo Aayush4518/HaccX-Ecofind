@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ecofind - Dashboard</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <style>
+    .dashboard-card { margin-bottom: 20px; }
+    .card-title { font-weight: 600; }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+      <a class="navbar-brand fw-bold d-flex align-items-center" href="index.html">
+        <img src="https://image2url.com/images/1757141720438-f13eba6e-88a7-4b8c-a11a-f924ed67b3be.jpg" alt="Ecofind Logo" style="height:40px; margin-right:10px;">
+        Ecofind
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html">Browse</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html">Contact</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="shopDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Shop
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="shopDropdown">
+              <li><a class="dropdown-item" href="buy.html">Buy</a></li>
+              <li><a class="dropdown-item" href="sell.html">Sell</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="subscriptionDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Subscription
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="subscriptionDropdown">
+              <li>
+                <a class="dropdown-item" href="#">
+                  Seller Subscription <span class="badge bg-success ms-2">₹399</span>
+                </a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="#">
+                  Buyer Subscription <span class="badge bg-success ms-2">₹399</span>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item" id="navLogin"><a class="nav-link" href="login.html">Login</a></li>
+          <li class="nav-item" id="navSignup"><a class="nav-link" href="signup.html">Sign Up</a></li>
+          <li class="nav-item" id="navLogout" style="display:none;"><a class="nav-link" href="#" id="logoutBtn">Logout</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Dashboard Content -->
+  <div class="container mt-5">
+    <h2>Welcome, <span id="userName"></span>!</h2>
+    <p>Here’s your dashboard overview:</p>
+
+    <div class="row mt-4">
+      <!-- Order History -->
+      <div class="col-md-6 dashboard-card">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Order History</h5>
+            <ul class="list-group" id="orderHistory">
+              <!-- Orders will be added here dynamically -->
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Recent Purchases -->
+      <div class="col-md-6 dashboard-card">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Recent Purchases</h5>
+            <ul class="list-group" id="recentPurchases">
+              <!-- Purchases will be added here dynamically -->
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Profile Info -->
+      <div class="col-md-12 dashboard-card">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Profile Info</h5>
+            <p><strong>Name:</strong> <span id="profileName"></span></p>
+            <p><strong>Email:</strong> <span id="profileEmail"></span></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Reward Points -->
+      <div class="col-md-12 dashboard-card">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Reward Points</h5>
+            <p>
+              <strong>Your Points:</strong> <span id="rewardPoints" class="badge bg-primary"></span>
+            </p>
+            <div>
+              <button class="btn btn-success btn-sm me-2" id="redeemOfferBtn" disabled>Redeem Offer (100 pts)</button>
+              <button class="btn btn-warning btn-sm" id="redeemGiftBtn" disabled>Redeem Gift Card (200 pts)</button>
+            </div>
+            <div id="rewardMsg" style="margin-top:10px;"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Your Listed Products -->
+      <div class="col-md-12 dashboard-card">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Your Listed Products</h5>
+            <ul class="list-group" id="soldProducts"></ul>
+            <div id="noProductsMsg" style="color:#888; margin-top:10px; display:none;">You have not listed any products yet.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Confirmation Modal -->
+  <div class="modal fade" id="removeProductModal" tabindex="-1" aria-labelledby="removeProductModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="removeProductModalLabel">Remove Product</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Are you sure you want to remove this product?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-danger" id="confirmRemoveBtn">Remove</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    // Get current user
+    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    if(!currentUser){
+      window.location.href = 'login.html';
+    } else {
+      document.getElementById('userName').textContent = currentUser.name;
+      document.getElementById('profileName').textContent = currentUser.name;
+      document.getElementById('profileEmail').textContent = currentUser.email;
+    }
+
+    // Navbar dynamic
+    const navLogin = document.getElementById('navLogin');
+    const navSignup = document.getElementById('navSignup');
+    const navLogout = document.getElementById('navLogout');
+
+    if(currentUser){
+      navLogin.style.display = 'none';
+      navSignup.style.display = 'none';
+      navLogout.style.display = 'block';
+    }
+
+    document.getElementById('logoutBtn').addEventListener('click', function(){
+      localStorage.removeItem('currentUser');
+      location.href = 'index.html';
+    });
+
+    // Example data for orders & purchases
+    const orders = [
+      { id: 'ORD123', item: 'Vintage Chair', date: '2025-09-20' },
+      { id: 'ORD124', item: 'Eco Backpack', date: '2025-09-21' }
+    ];
+
+    const purchases = [
+      { item: 'Vintage Chair', price: '$50' },
+      { item: 'Eco Backpack', price: '$35' }
+    ];
+
+    const orderList = document.getElementById('orderHistory');
+    orders.forEach(order => {
+      const li = document.createElement('li');
+      li.className = 'list-group-item';
+      li.textContent = `${order.id} - ${order.item} (${order.date})`;
+      orderList.appendChild(li);
+    });
+
+    const purchaseList = document.getElementById('recentPurchases');
+    purchases.forEach(p => {
+      const li = document.createElement('li');
+      li.className = 'list-group-item';
+      li.textContent = `${p.item} - ${p.price}`;
+      purchaseList.appendChild(li);
+    });
+
+    // Sold products example data
+    const soldProducts = [
+      { id: 'P123', name: 'Wooden Table', price: '$150' },
+      { id: 'P124', name: 'Ceramic Vase', price: '$25' }
+    ];
+
+    const soldProductsList = document.getElementById('soldProducts');
+    if(soldProducts.length === 0) {
+      document.getElementById('noProductsMsg').style.display = 'block';
+    } else {
+      soldProducts.forEach(product => {
+        const li = document.createElement('li');
+        li.className = 'list-group-item';
+        li.textContent = `${product.name} - ${product.price}`;
+        soldProductsList.appendChild(li);
+      });
+    }
+
+    // Remove product functionality
+    let productIdToRemove = null;
+
+    function renderSoldProducts() {
+      const soldList = document.getElementById('soldProducts');
+      const noProductsMsg = document.getElementById('noProductsMsg');
+      const products = JSON.parse(localStorage.getItem("userProducts")) || [];
+      const userEmail = currentUser?.email;
+
+      // Only show products listed by this user
+      const myProducts = products.filter(
+        p => p.email && userEmail && p.email.toLowerCase() === userEmail.toLowerCase()
+      );
+
+      soldList.innerHTML = "";
+      if (myProducts.length === 0) {
+        noProductsMsg.style.display = "block";
+        return;
+      } else {
+        noProductsMsg.style.display = "none";
+      }
+
+      myProducts.forEach(product => {
+        const li = document.createElement('li');
+        li.className = 'list-group-item d-flex justify-content-between align-items-center flex-wrap';
+        li.innerHTML = `
+          <div>
+            <strong>${product.name}</strong> 
+            <span class="badge bg-success ms-2">${product.category}</span>
+            <span class="ms-2" style="color:#388e3c;">₹${product.price}</span>
+          </div>
+          <button class="btn btn-sm btn-danger remove-product-btn" data-id="${product.id}">Remove</button>
+        `;
+        soldList.appendChild(li);
+      });
+
+      // Remove event listeners
+      document.querySelectorAll('.remove-product-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+          productIdToRemove = this.getAttribute('data-id');
+          const modal = new bootstrap.Modal(document.getElementById('removeProductModal'));
+          modal.show();
+        });
+      });
+    }
+
+    // Confirm remove button logic
+    document.getElementById('confirmRemoveBtn').addEventListener('click', function() {
+      if (productIdToRemove) {
+        const products = JSON.parse(localStorage.getItem("userProducts")) || [];
+        const updated = products.filter(p => String(p.id) !== String(productIdToRemove));
+        localStorage.setItem("userProducts", JSON.stringify(updated));
+        productIdToRemove = null;
+        // Hide modal
+        const modalEl = document.getElementById('removeProductModal');
+        const modal = bootstrap.Modal.getInstance(modalEl);
+        modal.hide();
+        renderSoldProducts();
+      }
+    });
+
+    // --- Reward System ---
+    function getUserPoints() {
+      const points = JSON.parse(localStorage.getItem('userPoints') || '{}');
+      return points[currentUser.email] || 0;
+    }
+    function setUserPoints(val) {
+      const points = JSON.parse(localStorage.getItem('userPoints') || '{}');
+      points[currentUser.email] = val;
+      localStorage.setItem('userPoints', JSON.stringify(points));
+    }
+    function updateRewardUI() {
+      const pts = getUserPoints();
+      document.getElementById('rewardPoints').textContent = pts;
+      document.getElementById('redeemOfferBtn').disabled = pts < 100;
+      document.getElementById('redeemGiftBtn').disabled = pts < 200;
+    }
+    // Award points for demo: +20 for each purchase, +30 for each product listed
+    function awardPointsForDemo() {
+      let pts = getUserPoints();
+      // Award for purchases
+      pts += purchases.length * 20;
+      // Award for products listed
+      const products = JSON.parse(localStorage.getItem("userProducts")) || [];
+      const myProducts = products.filter(p => p.email && p.email.toLowerCase() === currentUser.email.toLowerCase());
+      pts += myProducts.length * 30;
+      setUserPoints(pts);
+      updateRewardUI();
+    }
+    // Redeem buttons
+    document.getElementById('redeemOfferBtn').onclick = function() {
+      let pts = getUserPoints();
+      if (pts >= 100) {
+        setUserPoints(pts - 100);
+        // Set offer flag for next purchase
+        localStorage.setItem('offerFor_' + currentUser.email, 'true');
+        updateRewardUI();
+        document.getElementById('rewardMsg').textContent = "🎉 Offer redeemed! 10% off will be applied to your next purchase.";
+      }
+    };
+    document.getElementById('redeemGiftBtn').onclick = function() {
+      let pts = getUserPoints();
+      if (pts >= 200) {
+        setUserPoints(pts - 200);
+        updateRewardUI();
+        document.getElementById('rewardMsg').textContent = "🎁 Gift card redeemed! Check your email for the code.";
+      }
+    };
+
+    // On page load
+    awardPointsForDemo();
+    updateRewardUI();
+
+    // Call on page load
+    renderSoldProducts();
+  </script>
+</body>
+</html>

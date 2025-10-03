@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Leaf Animation</title>
+  <style>
+    body, html {
+      height: 100%;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #fff;
+    }
+
+    .logo {
+      height: 120px;
+      width: auto;
+      opacity: 0;
+      animation: leafPulse 2s infinite ease-in-out;
+    }
+
+    @keyframes leafPulse {
+      0%   { opacity: 0; transform: scale(0.5) rotate(-10deg); }
+      50%  { opacity: 1; transform: scale(1.1) rotate(5deg); }
+      100% { opacity: 0; transform: scale(0.9) rotate(0deg); }
+    }
+  </style>
+</head>
+<body>
+  <img
+    src="https://image2url.com/images/1757141720438-f13eba6e-88a7-4b8c-a11a-f924ed67b3be.jpg"
+    alt="Ecofind Logo"
+    class="logo"
+  />
+</body>
+</html>
